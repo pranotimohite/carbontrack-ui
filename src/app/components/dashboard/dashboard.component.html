@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">CarbonTrack Dashboard</mat-toolbar>
+
+<mat-card class="container">
+  <h3>Emission by Type</h3>
+  <div style="max-width:400px; margin:0 auto;">
+    <canvas baseChart [data]="chartData" [type]="chartType"></canvas>
+  </div>
+
+  <div style="text-align:center; margin-top:16px;">
+    <button mat-raised-button color="accent" routerLink="/add">➕ Add Activity</button>
+  </div>
+</mat-card>
