@@ -3,11 +3,12 @@ import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection(),
     provideRouter(appRoutes),
-    importProvidersFrom(BrowserAnimationsModule, NgChartsModule)
+    importProvidersFrom(BrowserAnimationsModule, NgChartsModule, HttpClientModule)
   ]
 };

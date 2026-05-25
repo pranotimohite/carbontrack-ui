@@ -1,0 +1,28 @@
+.container {
+  max-width: 720px;
+  margin: 20px auto;
+}
+
+mat-card {
+  padding: 24px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+.full {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}

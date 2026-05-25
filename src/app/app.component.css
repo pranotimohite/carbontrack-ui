@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #eef2ff;
+}
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.active-link {
+  text-decoration: underline;
+}
+
+.app-shell {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}

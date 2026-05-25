@@ -1,0 +1,22 @@
+.login-shell {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(420px, 100%);
+  padding: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error-message {
+  color: #b00020;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}

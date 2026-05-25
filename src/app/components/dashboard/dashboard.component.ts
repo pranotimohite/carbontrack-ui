@@ -6,11 +6,12 @@ import { RouterLink } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgChartsModule, RouterLink, MatToolbarModule, MatCardModule, MatButtonModule],
+  imports: [NgChartsModule, RouterLink, MatToolbarModule, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })

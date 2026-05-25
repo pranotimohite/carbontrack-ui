@@ -1,12 +1,26 @@
-<mat-toolbar color="primary">CarbonTrack Dashboard</mat-toolbar>
+<mat-toolbar color="primary" class="dashboard-toolbar">
+  <span>CarbonTrack Dashboard</span>
+  <span class="spacer"></span>
+  <button mat-icon-button color="accent" routerLink="/chat" aria-label="Open chat">
+    <mat-icon>chat</mat-icon>
+  </button>
+  <button mat-raised-button color="accent" routerLink="/add">➕ Add Activity</button>
+</mat-toolbar>
 
 <mat-card class="container">
-  <h3>Emission by Type</h3>
-  <div style="max-width:400px; margin:0 auto;">
+  <div class="dashboard-header">
+    <div>
+      <h3>Emission by Type</h3>
+      <p>Track your transportation footprint and explore how each activity contributes.</p>
+    </div>
+  </div>
+
+  <div class="chart-wrapper">
     <canvas baseChart [data]="chartData" [type]="chartType"></canvas>
   </div>
 
-  <div style="text-align:center; margin-top:16px;">
-    <button mat-raised-button color="accent" routerLink="/add">➕ Add Activity</button>
+  <div class="actions">
+    <button mat-stroked-button color="primary" routerLink="/chat">Chat with Bot</button>
+    <button mat-raised-button color="accent" routerLink="/add">Add New Activity</button>
   </div>
 </mat-card>

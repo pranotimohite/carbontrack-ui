@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Activity, ActivityService } from '../../services/activity.service';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule, ReactiveFormsModule,
+    RouterLink,
     MatToolbarModule, MatCardModule, MatFormFieldModule,
     MatSelectModule, MatInputModule, MatButtonModule
   ],

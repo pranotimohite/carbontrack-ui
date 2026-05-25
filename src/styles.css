@@ -1,3 +1,26 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body { font-family: Roboto, "Helvetica Neue", sans-serif; margin:0; }
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: #eef2ff;
+  color: #111827;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+mat-card {
+  border-radius: 18px;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
