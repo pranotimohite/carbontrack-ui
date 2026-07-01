@@ -5,6 +5,8 @@
     {
       "type": "npm",
       "script": "start",
+      "label": "npm: start",
+      "detail": "ng serve --proxy-config proxy.conf.json",
       "isBackground": true,
       "problemMatcher": {
         "owner": "typescript",

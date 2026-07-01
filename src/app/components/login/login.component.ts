@@ -24,6 +24,13 @@ import { AuthService } from '../../services/auth.service';
               Username is required
             </mat-error>
           </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" autocomplete="current-password" />
+            <mat-error *ngIf="form.controls.password.hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
 
           <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
@@ -38,7 +45,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
   form = this.fb.group({
-    username: ['', Validators.required]
+    username: ['', Validators.required],
+    password: ['', Validators.required]
   });
 
   loading = false;
@@ -58,8 +66,9 @@ export class LoginComponent {
     this.errorMessage = '';
     this.loading = true;
     const username = this.form.value.username?.trim() ?? '';
+    const password = this.form.value.password?.trim() ?? '';
 
-    this.auth.login(username).subscribe({
+    this.auth.login(username, password).subscribe({
       next: () => {
         this.router.navigate(['/dashboard']);
       },

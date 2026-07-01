@@ -35,17 +35,26 @@ export class AddActivityComponent {
     { value: 'train', view: 'Train' }
   ];
 
-  constructor(private fb: FormBuilder, private svc: ActivityService, private router: Router) {}
+  constructor(private fb: FormBuilder, private svc: ActivityService, private router: Router) { }
 
   onSubmit() {
-    if (this.form.valid) {
-      const activity: Activity = {
+    if (this.form.invalid) return;
+
+    const activity: Activity = {
       type: this.form.value.type!,
       value: Number(this.form.value.value),   // ✅ convert string → number
       unit: this.form.value.unit!
     };
-      this.svc.addActivity(activity);
-      this.router.navigate(['/']);
-    }
+
+    this.svc.addActivity(activity).subscribe({
+      next: () => {
+        this.router.navigate(['/']);        // navigate only on success
+      },
+      error: (err) => {
+        console.error('Failed to add activity:', err);
+        // show error to user e.g. a snackbar or error flag
+      }
+    });
+
   }
 }

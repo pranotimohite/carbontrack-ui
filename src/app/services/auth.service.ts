@@ -26,8 +26,8 @@ export class AuthService {
     );
   }
 
-  login(username: string): Observable<void> {
-    return this.http.post('/api/auth/login', { username }, { withCredentials: true }).pipe(
+  login(username: string, password: string): Observable<void> {
+    return this.http.post('/api/auth/login', { username, password }, { withCredentials: true }).pipe(
       tap(() => {
         localStorage.setItem('auth.loggedIn', 'true');
         this.isLoggedInSubject.next(true);
