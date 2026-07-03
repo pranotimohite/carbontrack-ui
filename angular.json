@@ -73,10 +73,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "carbontrack-ui:build:production"
+              "buildTarget": "carbontrack-ui:build:production"
             },
             "development": {
-              "browserTarget": "carbontrack-ui:build:development"
+              "buildTarget": "carbontrack-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "carbontrack-ui:build"
+            "buildTarget": "carbontrack-ui:build"
           }
         },
         "test": {
