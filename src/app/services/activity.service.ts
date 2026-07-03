@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
+import { ChartData } from '../model/ChartData';
 
 export interface Activity {
   type: string;
@@ -17,7 +18,7 @@ export class ActivityService {
 
   addActivity(a: Activity) {
     this.activities.next([...this.activities.value, a]);
-    return this.http.post('/api/activities', this.activities.value, {
+    return this.http.post('/api/activities', a, {
       withCredentials: true
     }).pipe(
       tap(() => {
@@ -31,4 +32,8 @@ export class ActivityService {
       })
     );
   }
+
+  getChartData() {
+  return this.http.get<ChartData[]>('/api/activities/chart');
+}
 }

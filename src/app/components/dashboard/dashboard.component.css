@@ -26,9 +26,8 @@
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
+
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
 }
