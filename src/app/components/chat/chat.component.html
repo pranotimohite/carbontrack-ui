@@ -5,19 +5,33 @@
 <mat-card class="chat-card">
   <div class="chat-intro">
     <h2>Talk to the CarbonTrack assistant</h2>
-    <p>Send a message and receive a response from the backend at <code>/api/bot/chat</code>.</p>
+    <p>Send a message and receive a response from the backend at <code>/api/ai/bot/chat</code>.</p>
   </div>
 
-  <mat-list class="chat-list">
-    <mat-list-item *ngFor="let message of messages">
-      <div class="chat-message" [ngClass]="message.from">
-        <span class="message-label">
-          {{ message.from === 'user' ? 'You' : message.from === 'bot' ? 'Bot' : 'System' }}
-        </span>
-        <p>{{ message.text }}</p>
-      </div>
-    </mat-list-item>
-  </mat-list>
+  <!-- <div class="chat-scroll-container">
+    <mat-list class="chat-list">
+      <mat-list-item *ngFor="let message of messages">
+        <div class="chat-message" [ngClass]="message.from">
+          <span class="message-label">
+            {{ message.from === 'user' ? 'You' : message.from === 'bot' ? 'Bot' : 'System' }}
+          </span>
+          <pre class="message-text">{{ message.text }}</pre>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div> -->
+
+  <div class="chat-scroll-container">
+  <div *ngFor="let message of messages" class="chat-message" [ngClass]="message.from">
+    
+    <span class="message-label">
+      {{ message.from === 'user' ? 'You' : message.from === 'bot' ? 'Bot' : 'System' }}
+    </span>
+
+    <pre class="message-text">{{ message.text }}</pre>
+
+  </div>
+</div>
 
   <form class="chat-form" [formGroup]="form" (ngSubmit)="send()">
     <mat-form-field class="chat-input" appearance="outline">

@@ -62,7 +62,7 @@ export class ChatComponent {
 
     this.chatService.sendMessage(prompt).subscribe({
       next: response => {
-        this.messages.push({ from: 'bot', text: response });
+        this.messages.push({ from: 'bot', text: response.response });
       },
       error: () => {
         this.messages.push({

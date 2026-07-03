@@ -12,12 +12,12 @@ export interface GenAIResponse {
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
-  private readonly chatUrl = '/api/bot/chat';
+  private readonly chatUrl = '/api/ai/bot/chat';
 
   constructor(private http: HttpClient) {}
 
-  sendMessage(message: string): Observable<string> {
-    return this.http.post(this.chatUrl, { message }, { responseType: 'text', withCredentials: true });
+  sendMessage(prompt: string): Observable<{ ok: boolean; response: string }> {
+    return this.http.post<{ ok: boolean; response: string }>(this.chatUrl, { prompt }, { withCredentials: true });
   }
 
   chat(prompt: string): Observable<GenAIResponse> {
