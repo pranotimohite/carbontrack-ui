@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap, map, catchError, of } from 'rxjs';
+import { LoginResponse } from '../model/LoginResponse';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -27,8 +28,10 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<void> {
-    return this.http.post('/api/auth/login', { username, password }, { withCredentials: true }).pipe(
-      tap(() => {
+    return this.http.post<LoginResponse>('/api/auth/login', { username, password }, { withCredentials: true }).pipe(
+      tap(response => {
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('refreshToken', response.refreshToken);
         localStorage.setItem('auth.loggedIn', 'true');
         this.isLoggedInSubject.next(true);
       }),
@@ -38,6 +41,8 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('auth.loggedIn');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
     this.isLoggedInSubject.next(false);
   }
 }
